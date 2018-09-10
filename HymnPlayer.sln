@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HymnPlayer.Android", "HymnPlayer\HymnPlayer.Android\HymnPlayer.Android.csproj", "{5A3BDE37-1F39-4A04-84D4-D995EC426334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HymnPlayer", "HymnPlayer\HymnPlayer\HymnPlayer.csproj", "{D753C1B9-C3C9-4C3C-AC7F-639F6B0F545E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A3BDE37-1F39-4A04-84D4-D995EC426334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A3BDE37-1F39-4A04-84D4-D995EC426334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A3BDE37-1F39-4A04-84D4-D995EC426334}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5A3BDE37-1F39-4A04-84D4-D995EC426334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3BDE37-1F39-4A04-84D4-D995EC426334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A3BDE37-1F39-4A04-84D4-D995EC426334}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D753C1B9-C3C9-4C3C-AC7F-639F6B0F545E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D753C1B9-C3C9-4C3C-AC7F-639F6B0F545E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D753C1B9-C3C9-4C3C-AC7F-639F6B0F545E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D753C1B9-C3C9-4C3C-AC7F-639F6B0F545E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D753C1B9-C3C9-4C3C-AC7F-639F6B0F545E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D753C1B9-C3C9-4C3C-AC7F-639F6B0F545E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38B0D645-F18C-44DC-A113-13F806B90FC6}
+	EndGlobalSection
+EndGlobal
