@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ButtonCircle.FormsPlugin.Abstractions;assembly=ButtonCircle.FormsPlugin.Abstractions"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:viewModels="clr-namespace:HymnPlayer.ViewModels;assembly=HymnPlayer"
+             x:Class="HymnPlayer.Views.PlayerView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewModels:PlayerViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+        <Image HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill" Source="background.png" />
+        <BoxView HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#000000" Opacity="0.6"/>
+        <StackLayout Orientation="Vertical"
+                     VerticalOptions="Center">
+
+            <Image Source="dove.png"
+                   HeightRequest="70"
+                   WidthRequest="70"/>
+
+            <Label Text="{Binding CurrentSong}"
+                   TextColor="Bisque"
+                   HorizontalOptions="Center"
+                   FontFamily="Tangerine-Regular.ttf#"
+                   FontSize="30"/>
+
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center">
+                <local:CircleButton FontIcon="Material"
+                                    Icon="md-skip-previous"
+                                    FontSize="30"
+                                    TextColor="Black"
+                                    HeightRequest="50" WidthRequest="50"
+                                    BorderThickness="1" BorderColor="#F9D351"
+                                    BackgroundColor="#FBD9AB"
+                                    x:Name="PrevBtn"/>
+                <local:CircleButton FontIcon="Material"
+                                    FontSize="50"
+                                    Icon="md-play-arrow"
+                                    TextColor="Black"
+                                    HeightRequest="70" WidthRequest="70"
+                                    BorderThickness="1" BorderColor="#F9D351"
+                                    BackgroundColor="#FBD9AB"
+                                    x:Name="PlayBtn"/>
+                <local:CircleButton FontIcon="Material"
+                                    Icon="md-skip-next"
+                                    FontSize="30"
+                                    TextColor="Black"
+                                    HeightRequest="50" WidthRequest="50"
+                                    BorderThickness="1" BorderColor="#F9D351"
+                                    BackgroundColor="#FBD9AB"
+                                    x:Name="NextBtn"/>
+
+            </StackLayout>
+            <Slider x:Name="Slider"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

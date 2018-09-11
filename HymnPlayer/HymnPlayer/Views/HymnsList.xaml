@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:HymnPlayer.ViewModels;assembly=HymnPlayer"
+             x:Class="HymnPlayer.Views.HymnsList"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewModels:HymnListViewModel/>
+    </ContentPage.BindingContext>
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+        <Image HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill" Source="background.png" />
+        <BoxView HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#000000" Opacity="0.6"/>
+        <StackLayout>
+            <Label Text="DLCM Hymns"
+                   FontSize="30"
+                   TextColor="Wheat"
+                   HorizontalOptions="Center"
+                   FontFamily="Monoton-Regular.ttf#"
+                   Margin="10"/>
+            <SearchBar x:Name="SearchBar"
+                       Text="{Binding SearchQuery}"
+                       TextColor="Black"
+                       SearchCommand="{Binding SearchCommand}"
+                       TextChanged="SearchBar_OnTextChanged"
+                       Margin="10"
+                       PlaceholderColor="Black"
+                       BackgroundColor="Wheat"
+                       Opacity="0.5"
+                       Placeholder="Enter Number or Hymn"/>
+            <ListView x:Name="HymnsListView"
+                      HasUnevenRows="True"
+                      ItemsSource="{Binding Suggestions}"
+                      SeparatorColor="Wheat"
+                      ItemTapped="HymnsListView_OnItemTapped"
+                      Margin="8">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         Margin="3"
+                                         Padding="5">
+                                <Label Text="{Binding HymnNumber}"
+                                       TextColor="Wheat"
+                                       FontSize="35"
+                                       FontFamily="Tangerine-Regular.ttf#"/>
+                                <Label Text="{Binding Title}"
+                                       TextColor="Wheat"
+                                       FontSize="35"
+                                       FontFamily="Tangerine-Regular.ttf#"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

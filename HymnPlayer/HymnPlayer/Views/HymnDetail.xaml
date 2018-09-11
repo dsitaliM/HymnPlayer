@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:HymnPlayer.ViewModels;assembly=HymnPlayer"
+             x:Class="HymnPlayer.Views.HymnDetail"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.BindingContext>
+        <viewModels:HymnDetailViewModel/>
+    </ContentPage.BindingContext>
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+        <Image HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill" Source="background.png" />
+        <BoxView HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#000000" Opacity="0.6"/>
+
+        <Grid HorizontalOptions="Center"
+              VerticalOptions="Center"
+              Padding="30">
+            <Image HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill" Source="scroll.png" />
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+                <StackLayout Orientation="Horizontal">
+                    <Label TextColor="#0B0706"
+                           FontFamily="Tangerine-Regular.ttf#"
+                           Text="Hymn: "
+                           FontSize="30"/>
+                    <Label TextColor="#0B0706"
+                           Text="{Binding Hymn.Title}"
+                           FontFamily="Tangerine-Regular.ttf#"
+                           x:Name="TitleLabel"
+                           FontSize="30"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label TextColor="#0B0706"
+                           Text="Author: "
+                           FontFamily="Tangerine-Regular.ttf#"
+                           FontSize="30"/>
+                    <Label TextColor="#0B0706"
+                           Text="{Binding Hymn.Author}"
+                           x:Name="AuthorLabel"
+                           FontFamily="Tangerine-Regular.ttf#"
+                           FontSize="30"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label TextColor="#0B0706"
+                           Text="Year: "
+                           FontFamily="Tangerine-Regular.ttf#"
+                           FontSize="30"/>
+                    <Label TextColor="#0B0706"
+                           Text="{Binding Hymn.Year}"
+                           x:Name="YearLabel"
+                           FontFamily="Tangerine-Regular.ttf#"
+                           FontSize="30"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label TextColor="#0B0706"
+                           Text="Key: "
+                           FontFamily="Tangerine-Regular.ttf#"
+                           FontSize="30"/>
+                    <Label TextColor="#0B0706"
+                           Text="{Binding Hymn.Key}"
+                           x:Name="KeyLabel"
+                           FontFamily="Tangerine-Regular.ttf#"
+                           FontSize="30"/>
+                </StackLayout>
+
+                <Button Text="Play"
+                        TextColor="#0B0706"
+                        BackgroundColor="Wheat"
+                        Clicked="Button_OnClicked"
+                        Margin="5"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

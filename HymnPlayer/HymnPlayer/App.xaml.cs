@@ -1,4 +1,5 @@
 using System;
+using HymnPlayer.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,13 +12,18 @@ namespace HymnPlayer
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+		    //MainPage = new PlayerView();
+		    //MainPage = new NavigationPage(new HymnsList());
+
+		    var navPage = new NavigationPage(new HymnsList());
+		    MainPage = navPage;
 		}
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
-		}
+            // Handle when your app starts
+		    //NavigationPage.SetHasNavigationBar(this, false);
+        }
 
 		protected override void OnSleep ()
 		{
