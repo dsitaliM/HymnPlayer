@@ -20,7 +20,7 @@
                    HeightRequest="70"
                    WidthRequest="70"/>
 
-            <Label Text="{Binding CurrentSong}"
+            <Label x:Name="SongLabel"
                    TextColor="Bisque"
                    HorizontalOptions="Center"
                    FontFamily="Tangerine-Regular.ttf#"

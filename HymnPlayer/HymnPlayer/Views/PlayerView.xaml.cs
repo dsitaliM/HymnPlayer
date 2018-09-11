@@ -16,7 +16,8 @@ namespace HymnPlayer.Views
 	    private readonly ISimpleAudioPlayer _player;
 	    private readonly IList<Hymn> _hymns;
 
-	    private readonly Hymn _currentSong;
+	    private Hymn _currentSong;
+	    private int _hymnNumber;
 
 	    public PlayerView ()
 		{
@@ -24,9 +25,7 @@ namespace HymnPlayer.Views
             
             Slider.Effects.Add(Effect.Resolve("CustomEffects.BrownSliderEffect"));
 		}
-
-	    public string CurrentSong => _hymns.FirstOrDefault(x => x.HymnNumber == _currentSong.HymnNumber)?.Title;
-
+       
 	    public PlayerView(Hymn hymn)
 	    {
 	        InitializeComponent();
@@ -34,13 +33,15 @@ namespace HymnPlayer.Views
             var playerViewModel = new PlayerViewModel(hymn);
 	        BindingContext = playerViewModel;
 
+
 	        _hymns = new HymnsRepository().GetHymns;
 
 	        _currentSong = _hymns.FirstOrDefault(x => x.Title == hymn.Title);
+	        _hymnNumber = _currentSong.HymnNumber;
 
 	        _player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
 
-	        _player.Load($"{_currentSong.HymnNumber}.mid");
+	        _player.Load($"{_hymnNumber}.mid");
 
             InitializeControls();
 	    }
@@ -70,6 +71,7 @@ namespace HymnPlayer.Views
 	    {
 	        PlayBtn.Clicked += PlayButtonClicked;
 	        NextBtn.Clicked += NextButtonClicked;
+	        NextBtn.Clicked += PlayButtonClicked;
 	        PrevBtn.Clicked += PreviousButtonClicked;
 	    }
 
@@ -90,35 +92,48 @@ namespace HymnPlayer.Views
 
 	    public void NextButtonClicked(object sender, EventArgs e)
 	    {
-	        if (_currentSong.HymnNumber < 260)
+	        if (_hymnNumber < 260)
 	        {
-	            _currentSong.HymnNumber++;
+	            _hymnNumber++;
 	        }
 	        else
 	        {
-	            _currentSong.HymnNumber = 1;
+	            _hymnNumber = 1;
 	        }
 
+	        _currentSong = _hymns.FirstOrDefault(x => x.HymnNumber == _hymnNumber);
+            SongLabel.Text = _currentSong.Title;
+
             _player.Stop();
-	        _player.Load($"{_currentSong.HymnNumber}.mid");
-            _player.Play();
-	    }
+	        _player.Load($"{_hymnNumber}.mid");
+	        _icon = 1;
+        }
 
 	    public void PreviousButtonClicked(object sender, EventArgs e)
 	    {
-	        if (_currentSong.HymnNumber < 2)
+	        if (_hymnNumber < 2)
 	        {
-	            _currentSong.HymnNumber = 260;
+	            _hymnNumber = 260;
 	        }
 	        else
 	        {
-	            _currentSong.HymnNumber--;
+	            _hymnNumber--;
 	        }
 
-	        _player.Stop();
-	        _player.Load($"{_currentSong.HymnNumber}.mid");
-	        _player.Play();
+	        _currentSong = _hymns.FirstOrDefault(x => x.HymnNumber == _hymnNumber);
+	        SongLabel.Text = _currentSong.Title;
+
+            _player.Stop();
+	        _player.Load($"{_hymnNumber}.mid");
+	        _icon = 1;
+
+
         }
+
+	    protected override void OnAppearing()
+	    {
+	        SongLabel.Text = _currentSong.Title;
+	    }
 
 	    protected override void OnDisappearing()
 	    {
