@@ -12,7 +12,7 @@ namespace HymnPlayer.Droid.Extenstions
 
         protected override void OnDetached()
         {
-            throw new System.NotImplementedException();
+            // throw new System.NotImplementedException();
         }
     }
 }
