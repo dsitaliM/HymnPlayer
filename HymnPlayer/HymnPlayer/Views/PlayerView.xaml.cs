@@ -77,7 +77,7 @@ namespace HymnPlayer.Views
 
 	    private void SliderPositionValueChanged(object sender, ValueChangedEventArgs e)
 	    {
-            if (Slider.Value != _player.Duration)
+            if (Math.Abs(Slider.Value - _player.Duration) > 0.00001)
                 _player.Seek(Slider.Value);
 	    }
 
